@@ -1,11 +1,12 @@
 {
-    "name": "Pureba",
+    "name": "Repte 4.1_4.2",
     "version": "0.0.3",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "microshield": "github:makeandlearn/pxt-microshield#1.0.1"
     },
     "files": [
         "main.blocks",
@@ -16,7 +17,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "4.0.17",
+        "target": "4.0.18",
         "targetId": "microbit"
     },
     "supportedTargets": [

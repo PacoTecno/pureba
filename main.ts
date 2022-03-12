@@ -1,10 +1,36 @@
-radio.onReceivedNumber(function (receivedNumber) {
-	
+input.onButtonPressed(Button.A, function () {
+    serial.writeLine("" + (input.temperature()))
+    serial.writeLine("Celsius")
+    basic.showString("" + (input.temperature()))
+    basic.showString("Celsius")
 })
-radio.onReceivedValue(function (name, value) {
-	
+input.onButtonPressed(Button.AB, function () {
+    if (input.temperature() > 25) {
+        serial.writeLine("Deixa l'abric a casa, avui toca platja!")
+        basic.showLeds(`
+            # . # . #
+            . # # # .
+            # # # # #
+            . # # # .
+            # . # . #
+            `)
+    } else {
+        serial.writeLine("No et deixes l'abric, que fa fred!")
+        basic.showLeds(`
+            . # # # .
+            # # # # #
+            . . # . .
+            # . # . .
+            # # # . .
+            `)
+    }
 })
-led.unplot(0, 0)
-basic.forever(function () {
-	
+input.onButtonPressed(Button.B, function () {
+    if (input.temperature() > 25) {
+        serial.writeLine("" + (input.temperature()))
+        basic.showIcon(IconNames.Happy)
+    } else {
+        serial.writeLine("" + (input.temperature()))
+        basic.showIcon(IconNames.Sad)
+    }
 })
